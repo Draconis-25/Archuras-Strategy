@@ -11,6 +11,8 @@ onready var join : Control = $"TabContainer/New/VBoxContainer/Data/VBoxContainer
 
 func _ready() -> void:
 	randomize()
+	key = int(rand_range(999, 10000))
+	print(key)
 	if Config.development:
 		var game_data = DevelopmentData.read_games()
 		for i in range(0, game_data.size()):
