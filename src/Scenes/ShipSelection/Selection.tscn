@@ -1,0 +1,267 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://res/Development/Themes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://res/Development/Fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://res/Development/Ships/carrier.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://src/Scenes/ShipSelection/Selection.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.0
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Control" parent="."]
+anchor_right = 0.208333
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Menu/Panel/VBoxContainer"]
+margin_right = 399.0
+margin_bottom = 1041.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Menu/Panel/VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="HBoxContainer" parent="Menu/Panel/VBoxContainer/Control/GridContainer"]
+margin_right = 393.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Name"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Name"
+align = 1
+valign = 1
+
+[node name="Stat1" type="HBoxContainer" parent="Menu/Panel/VBoxContainer/Control/GridContainer"]
+margin_top = 34.0
+margin_right = 393.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat1"]
+margin_right = 194.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Attack"
+valign = 1
+
+[node name="Value" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat1"]
+margin_left = 198.0
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "asd"
+valign = 1
+
+[node name="Stat2" type="HBoxContainer" parent="Menu/Panel/VBoxContainer/Control/GridContainer"]
+margin_top = 68.0
+margin_right = 393.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat2"]
+margin_right = 194.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Defense"
+valign = 1
+
+[node name="Value" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat2"]
+margin_left = 198.0
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "asd"
+valign = 1
+
+[node name="Stat3" type="HBoxContainer" parent="Menu/Panel/VBoxContainer/Control/GridContainer"]
+margin_top = 102.0
+margin_right = 393.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat3"]
+margin_right = 194.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Speed"
+valign = 1
+
+[node name="Value" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat3"]
+margin_left = 198.0
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "asd"
+valign = 1
+
+[node name="Stat4" type="HBoxContainer" parent="Menu/Panel/VBoxContainer/Control/GridContainer"]
+margin_top = 136.0
+margin_right = 393.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat4"]
+margin_right = 194.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Capacity"
+valign = 1
+
+[node name="Value" type="Label" parent="Menu/Panel/VBoxContainer/Control/GridContainer/Stat4"]
+margin_left = 198.0
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "asd"
+valign = 1
+
+[node name="Select" type="Button" parent="Menu/Panel/VBoxContainer"]
+margin_top = 1045.0
+margin_right = 399.0
+margin_bottom = 1080.0
+custom_fonts/font = SubResource( 1 )
+text = "Select"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.208333
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Control/ViewportContainer"]
+size = Vector2( 1520, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Selection" type="Spatial" parent="Control/ViewportContainer/Viewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Control/ViewportContainer/Viewport/Selection"]
+environment = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Control/ViewportContainer/Viewport/Selection"]
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Camera" type="Camera" parent="Control/ViewportContainer/Viewport/Selection"]
+transform = Transform( 0.720576, -0.396691, 0.568688, 0, 0.820173, 0.572115, -0.693376, -0.412253, 0.590997, 1.95021, 1.96199, 2.02672 )
+current = true
+
+[node name="SpotLight" type="SpotLight" parent="Control/ViewportContainer/Viewport/Selection"]
+transform = Transform( 1, 0, 0, 0, 0.857509, 0.514469, 0, -0.514469, 0.857509, 0, 2.70427, 3.55387 )
+light_energy = 5.541
+spot_range = 6.00439
+spot_angle = 22.6583
+
+[node name="SelectionBar" type="Control" parent="."]
+anchor_left = 0.53125
+anchor_top = 0.944444
+anchor_right = 0.677083
+anchor_bottom = 0.990741
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="SelectionBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="SelectionBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.78125
+anchor_top = 0.0277778
+anchor_right = 0.979167
+anchor_bottom = 0.0833333
+text = "Use the right mouse button to rotate the ship."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="Menu/Panel/VBoxContainer/Select" to="." method="_on_Select_pressed"]

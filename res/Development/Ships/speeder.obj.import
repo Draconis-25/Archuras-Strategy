@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/speeder.obj-05e8c4982cb03209793684d960f9d31a.mesh"
+
+[deps]
+
+files=[ "res://.import/speeder.obj-05e8c4982cb03209793684d960f9d31a.mesh" ]
+
+source_file="res://res/Development/Ships/speeder.obj"
+dest_files=[ "res://.import/speeder.obj-05e8c4982cb03209793684d960f9d31a.mesh", "res://.import/speeder.obj-05e8c4982cb03209793684d960f9d31a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

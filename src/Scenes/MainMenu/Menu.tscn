@@ -1,0 +1,541 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://res/Development/Themes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://res/Development/Fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://res/Development/Fonts/Roboto/Roboto-Light.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/Scenes/MainMenu/Menu.gd" type="Script" id=4]
+[ext_resource path="res://src/Scenes/MainMenu/PlayWindow.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 3
+extra_spacing_space = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 15
+font_data = ExtResource( 3 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.0277778
+anchor_right = 1.0
+anchor_bottom = 0.194444
+custom_fonts/font = SubResource( 1 )
+text = "Archura's Strategy"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.046875
+anchor_top = 0.37963
+anchor_right = 0.151042
+anchor_bottom = 0.75
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Play" type="Button" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.1
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Options" type="Button" parent="Control"]
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.3
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Exit" type="Button" parent="Control"]
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.5
+custom_fonts/font = SubResource( 2 )
+text = "Exit"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OptionsWindow" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 1.04167
+anchor_top = 0.0925926
+anchor_right = 1.45833
+anchor_bottom = 0.648148
+rect_min_size = Vector2( 400, 300 )
+window_title = "Options"
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TabContainer" type="TabContainer" parent="OptionsWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game" type="Control" parent="OptionsWindow/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Video" type="Control" parent="OptionsWindow/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Audio" type="Control" parent="OptionsWindow/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsWindow/TabContainer/Audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="OptionsWindow/TabContainer/Audio/VBoxContainer"]
+margin_right = 791.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Control2" type="Control" parent="OptionsWindow/TabContainer/Audio/VBoxContainer"]
+margin_top = 34.0
+margin_right = 791.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Control3" type="Control" parent="OptionsWindow/TabContainer/Audio/VBoxContainer"]
+margin_top = 68.0
+margin_right = 791.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Space" type="Control" parent="OptionsWindow/TabContainer/Audio/VBoxContainer"]
+margin_top = 102.0
+margin_right = 791.0
+margin_bottom = 524.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="Control" parent="OptionsWindow/TabContainer/Audio/VBoxContainer"]
+margin_top = 528.0
+margin_right = 791.0
+margin_bottom = 558.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="PlayWindow" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 1.51042
+anchor_top = 0.0925926
+anchor_right = 1.92708
+anchor_bottom = 0.648148
+rect_min_size = Vector2( 400, 300 )
+window_title = "Play"
+resizable = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TabContainer" type="TabContainer" parent="PlayWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Games" type="Control" parent="PlayWindow/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayWindow/TabContainer/Games"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/Games/ScrollContainer"]
+
+[node name="New" type="Control" parent="PlayWindow/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/New"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Data" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer"]
+margin_right = 791.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer"]
+margin_right = 791.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Type"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Game Type:"
+align = 1
+valign = 1
+
+[node name="Option" type="OptionButton" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Type"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+
+[node name="Host" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer"]
+margin_top = 34.0
+margin_right = 791.0
+margin_bottom = 150.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer"]
+margin_right = 791.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Name"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Game Name:"
+align = 1
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Name"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+
+[node name="IP" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer"]
+margin_top = 34.0
+margin_right = 791.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "IP"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP/HBoxContainer2"]
+margin_right = 360.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+editable = false
+secret = true
+
+[node name="IPShow" type="Button" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP/HBoxContainer2"]
+margin_left = 364.0
+margin_right = 394.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+text = "~"
+
+[node name="Key" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer"]
+margin_top = 68.0
+margin_right = 791.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Key"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key/HBoxContainer"]
+margin_right = 360.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+editable = false
+secret = true
+
+[node name="KeyShow" type="Button" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key/HBoxContainer"]
+margin_left = 364.0
+margin_right = 394.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+text = "~"
+
+[node name="Join" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer"]
+visible = false
+margin_top = 34.0
+margin_right = 791.0
+margin_bottom = 150.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer"]
+margin_right = 791.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Name"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Name"
+align = 1
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Name"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+
+[node name="IP" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer"]
+margin_top = 34.0
+margin_right = 791.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/IP"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Host IP"
+align = 1
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/IP"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+
+[node name="Key" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer"]
+margin_top = 68.0
+margin_right = 791.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Key"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Key*"
+align = 1
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Key"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+
+[node name="Blank" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer"]
+margin_top = 154.0
+margin_right = 791.0
+margin_bottom = 524.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Bottom" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer"]
+margin_top = 528.0
+margin_right = 791.0
+margin_bottom = 558.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Bottom"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer/Bottom/HBoxContainer"]
+margin_right = 356.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Bottom/HBoxContainer/Control"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.588235 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "* Take from your host"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PlayWindow/TabContainer/New/VBoxContainer/Bottom/HBoxContainer"]
+margin_left = 360.0
+margin_right = 430.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_vertical = 3
+text = "Create"
+
+[node name="Control2" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer/Bottom/HBoxContainer"]
+margin_left = 434.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Control/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Control/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="item_selected" from="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Type/Option" to="PlayWindow" method="_on_Option_item_selected"]
+[connection signal="pressed" from="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP/HBoxContainer2/IPShow" to="PlayWindow" method="_on_IPShow_pressed"]
+[connection signal="pressed" from="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key/HBoxContainer/KeyShow" to="PlayWindow" method="_on_KeyShow_pressed"]
