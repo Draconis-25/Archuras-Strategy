@@ -308,10 +308,36 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 align = 1
 
-[node name="IP" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer"]
+[node name="Username" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer"]
 margin_top = 34.0
 margin_right = 791.0
 margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Username"]
+margin_right = 393.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "User Name:"
+align = 1
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Username"]
+margin_left = 397.0
+margin_right = 791.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+
+[node name="IP" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer"]
+margin_top = 68.0
+margin_right = 791.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 0, 30 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -350,9 +376,9 @@ rect_min_size = Vector2( 30, 30 )
 text = "~"
 
 [node name="Key" type="HBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer"]
-margin_top = 68.0
+margin_top = 102.0
 margin_right = 791.0
-margin_bottom = 98.0
+margin_bottom = 132.0
 rect_min_size = Vector2( 0, 30 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -417,7 +443,7 @@ margin_right = 393.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Name"
+text = "User Name:"
 align = 1
 valign = 1
 
@@ -443,7 +469,7 @@ margin_right = 393.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Host IP"
+text = "Host IP*"
 align = 1
 valign = 1
 
@@ -518,7 +544,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="PlayWindow/TabContainer/New/VBoxContainer/Bottom/HBoxContainer"]
+[node name="SubmitNew" type="Button" parent="PlayWindow/TabContainer/New/VBoxContainer/Bottom/HBoxContainer"]
 margin_left = 360.0
 margin_right = 430.0
 margin_bottom = 30.0
@@ -539,3 +565,4 @@ size_flags_vertical = 3
 [connection signal="item_selected" from="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Type/Option" to="PlayWindow" method="_on_Option_item_selected"]
 [connection signal="pressed" from="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP/HBoxContainer2/IPShow" to="PlayWindow" method="_on_IPShow_pressed"]
 [connection signal="pressed" from="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key/HBoxContainer/KeyShow" to="PlayWindow" method="_on_KeyShow_pressed"]
+[connection signal="pressed" from="PlayWindow/TabContainer/New/VBoxContainer/Bottom/HBoxContainer/SubmitNew" to="PlayWindow" method="_on_SubmitNew_pressed"]
