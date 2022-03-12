@@ -73,7 +73,7 @@ func _on_SubmitNew_pressed() -> void:
 				script.mode = "Host"
 				script.game_name = $TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Name/LineEdit.text
 				script.username = $TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Username/LineEdit.text
-				script.test()
+				script.create_new_game()
 	elif dropdown.get_selected_id() == 1:
 		if $TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Name/LineEdit.text != "":
 			if $TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Key/LineEdit.text != "":

@@ -204,7 +204,6 @@ __meta__ = {
 }
 
 [node name="Games" type="Control" parent="PlayWindow/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -222,6 +221,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/Games/ScrollContainer"]
 
 [node name="New" type="Control" parent="PlayWindow/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -238,12 +238,13 @@ __meta__ = {
 
 [node name="Data" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer"]
 margin_right = 791.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 0, 150 )
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 160 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data"]
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.087
+margin_bottom = -0.0500031
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -273,7 +274,7 @@ align = 1
 [node name="Host" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer"]
 margin_top = 34.0
 margin_right = 791.0
-margin_bottom = 150.0
+margin_bottom = 173.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer/Host"]
@@ -418,7 +419,7 @@ text = "~"
 
 [node name="Join" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer/Data/VBoxContainer"]
 visible = false
-margin_top = 34.0
+margin_top = 94.0
 margin_right = 791.0
 margin_bottom = 150.0
 size_flags_vertical = 3
@@ -508,7 +509,7 @@ size_flags_vertical = 3
 align = 1
 
 [node name="Blank" type="Control" parent="PlayWindow/TabContainer/New/VBoxContainer"]
-margin_top = 154.0
+margin_top = 164.0
 margin_right = 791.0
 margin_bottom = 524.0
 size_flags_horizontal = 3

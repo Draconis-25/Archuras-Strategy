@@ -17,3 +17,8 @@ func read_games() -> Array:
 	var db_result : Array = db.query_result
 	print_debug(db_result)
 	return db_result
+
+func add_game(_game_name : String, _game_path : String) -> void:
+	db.open_db()
+	db.query("insert into games (name, path, data) values ('" + _game_name + "', '" + _game_path + "', 'Selection')")
+	print_debug(db.query_result)
