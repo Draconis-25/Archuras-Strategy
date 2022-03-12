@@ -7,6 +7,8 @@ var db_name : String = "res://res/Development/Data/games.db"
 
 var ship : int
 
+var current_game : String = ""
+
 func _ready() -> void:
 	db = SQLite.new()
 	db.path = db_name
@@ -20,5 +22,10 @@ func read_games() -> Array:
 
 func add_game(_game_name : String, _game_path : String) -> void:
 	db.open_db()
-	db.query("insert into games (name, path, data) values ('" + _game_name + "', '" + _game_path + "', 'Selection')")
-	print_debug(db.query_result)
+	db.query("insert into games (name, path, data) values ('" + _game_name + "', '" + _game_path + "', 'Selection');")
+
+func get_game_by_name(_game_name : String) -> Array:
+	db.open_db()
+	db.query("select * from games where name = '" + _game_name + "';")
+	var db_result : Array = db.query_result
+	return db_result

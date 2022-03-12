@@ -5,7 +5,6 @@ onready var mesh_original = $planet/Planet.mesh
 
 func _ready():
 	seed(OS.get_ticks_msec())
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	make_planet()
 
 func _input(event):
@@ -21,7 +20,7 @@ func make_planet():
 	#show the progress bar
 	progress.show()
 	
-	var max_iterations = 1000 #145  
+	var max_iterations = 145 #145  
 	for j in range(max_iterations):
 		
 		# wait a frame to prevent freezing the game

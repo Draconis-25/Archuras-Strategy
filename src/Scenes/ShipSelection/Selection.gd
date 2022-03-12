@@ -26,13 +26,13 @@ func _process(delta: float) -> void:
 	viewport.size.x = viewport_con.rect_size.x 
 	viewport.size.y = viewport_con.rect_size.y
 	
-	if (Input.is_action_just_pressed("selection_rotate")):
+	if Input.is_action_just_pressed("selection_rotate"):
 		rotating = true
 		prev_mouse_position = get_viewport().get_mouse_position()
-	if (Input.is_action_just_released("selection_rotate")):
+	if Input.is_action_just_released("selection_rotate"):
 		rotating = false
 		
-	if (rotating):
+	if rotating:
 		next_mouse_position = get_viewport().get_mouse_position()
 		ship.rotate_y((next_mouse_position.x - prev_mouse_position.x) * .1 * delta)
 		#ship.rotate_z(-(next_mouse_position.y - prev_mouse_position.y) * .1 * delta)
@@ -40,5 +40,5 @@ func _process(delta: float) -> void:
 
 
 func _on_Select_pressed() -> void:
-	DevelopmentData.ship =slider.value
+	DevelopmentData.ship = int(slider.value)
 	Manager.set_scene("res://src/Scenes/CapitalSelection/CSelection.tscn")

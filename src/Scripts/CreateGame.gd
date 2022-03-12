@@ -53,6 +53,8 @@ func create_new_game() -> void:
 		prepare_strings()
 		create_files(game_name)
 		DevelopmentData.add_game(game_name, "res://src/Scripts/Redirect.tscn")
+		DevelopmentData.current_game = game_name
+		Manager.set_scene("res://src/Scripts/Redirect.tscn")
 
 func join_new_game() -> void:
 	pass

@@ -8,4 +8,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_Button_pressed() -> void:
+	DevelopmentData.current_game = game_name
 	Manager.set_scene(redirect_path)
