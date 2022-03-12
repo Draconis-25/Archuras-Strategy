@@ -13,7 +13,6 @@ func _input(event):
 			make_planet()
 	
 func make_planet():
-		
 	var surf = MeshDataTool.new()
 	surf.create_from_surface(mesh_original, 0)
 	
