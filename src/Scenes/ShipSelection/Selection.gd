@@ -6,22 +6,34 @@ var next_mouse_position : Vector2
 
 var meshes : Array
 
+var ships_data : Array
+
 onready var ship : MeshInstance = $"Control/ViewportContainer/Viewport/Selection/MeshInstance"
 onready var viewport : Viewport = $"Control/ViewportContainer/Viewport"
 onready var viewport_con : ViewportContainer = $"Control/ViewportContainer"
 onready var slider : HSlider = $"SelectionBar/HSlider"
-onready var name_label : Label = $"Menu/Panel/VBoxContainer/Control/GridContainer/Name/Value"
 
+onready var name_label : Label = $"Menu/Panel/VBoxContainer/Control/GridContainer/Name/Value"
+onready var attack_label : Label = $"Menu/Panel/VBoxContainer/Control/GridContainer/Stat1/Value"
+onready var defense_label : Label = $"Menu/Panel/VBoxContainer/Control/GridContainer/Stat2/Value"
+onready var speed_label : Label = $"Menu/Panel/VBoxContainer/Control/GridContainer/Stat3/Value"
+onready var capacity_label : Label = $"Menu/Panel/VBoxContainer/Control/GridContainer/Stat4/Value"
+	
 func _ready() -> void:
 	slider.max_value = Ships.list.size() - 1
 	for i in range(0, Ships.list.size()):
 		var mesh = load(Config.resource_path + "Ships/" + Ships.list[i] + ".obj")
 		meshes.append(mesh)
-		pass
+	ships_data = DevelopmentData.read_all("list", "res://res/Development/Data/ESSENTIAL/ships.db")
 
 func _process(delta: float) -> void:
 	ship.mesh = meshes[slider.value]
-	name_label.text = Ships.list[slider.value]
+	name_label.text = Ships.list[slider.value].capitalize()
+
+	attack_label.text = str(ships_data[slider.value]["attack"])
+	defense_label.text = str(ships_data[slider.value]["defense"])
+	speed_label.text = str(ships_data[slider.value]["speed"])
+	capacity_label.text = str(ships_data[slider.value]["capacity"])
 	
 	viewport.size.x = viewport_con.rect_size.x 
 	viewport.size.y = viewport_con.rect_size.y

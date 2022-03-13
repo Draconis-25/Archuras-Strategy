@@ -16,7 +16,7 @@ func _ready() -> void:
 	key = int(rand_range(999, 10000))
 	print(key)
 	if Config.development:
-		var game_data = DevelopmentData.read_games()
+		var game_data = DevelopmentData.read_all("games", "res://res/Development/Data/games.db")
 		for i in range(0, game_data.size()):
 			var template = game_template.instance()
 			template.rect_size.x = self.rect_size.x - 5

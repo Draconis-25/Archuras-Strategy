@@ -11,21 +11,24 @@ var current_game : String = ""
 
 func _ready() -> void:
 	db = SQLite.new()
-	db.path = db_name
 	
-func read_games() -> Array:
+	
+func read_all(_table : String, _db_path) -> Array:
+	db.path = _db_path
 	db.open_db()
-	db.query("select * from games;")
+	db.query("select * from " + _table + ";")
 	var db_result : Array = db.query_result
 	print_debug(db_result)
 	return db_result
 
 func add_game(_game_name : String, _game_path : String) -> void:
+	db.path = db_name
 	db.open_db()
 	db.query("insert into games (name, path, data) values ('" + _game_name + "', '" + _game_path + "', 'Selection');")
 
-func get_game_by_name(_game_name : String) -> Array:
+func get_by_name(_name : String, _table : String, _db_path : String) -> Array:
+	db.path = _db_path
 	db.open_db()
-	db.query("select * from games where name = '" + _game_name + "';")
+	db.query("select * from " + _table + " where name = '" + _name + "';")
 	var db_result : Array = db.query_result
 	return db_result

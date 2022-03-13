@@ -33,7 +33,7 @@ emission_shape = 1
 emission_sphere_radius = 1.2
 spread = 177.87
 gravity = Vector3( 0, 0, 0 )
-radial_accel = -0.2
+radial_accel = 0.3
 tangential_accel = 3.0
 tangential_accel_random = 1.0
 damping = 1.5
@@ -41,6 +41,8 @@ scale = 0.2
 scale_curve = SubResource( 4 )
 
 [sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
 albedo_color = Color( 0.558594, 0.558594, 0.558594, 0.502745 )
 
 [sub_resource type="SphereMesh" id=7]
@@ -53,6 +55,7 @@ rings = 8
 [node name="main" type="WorldEnvironment"]
 environment = SubResource( 1 )
 script = ExtResource( 1 )
+noise_period = 5.0
 
 [node name="planet" parent="." instance=ExtResource( 2 )]
 
@@ -73,26 +76,12 @@ material/0 = ExtResource( 4 )
 visible = false
 cast_shadow = 0
 amount = 800
-lifetime = 4.0
 speed_scale = 0.3
 process_material = SubResource( 5 )
 draw_pass_1 = SubResource( 7 )
 
-[node name="container" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="progress" type="ProgressBar" parent="container"]
-margin_left = 835.0
-margin_top = 525.0
-margin_right = 1085.0
-margin_bottom = 555.0
-rect_min_size = Vector2( 250, 30 )
-size_flags_vertical = 3
-step = 1.0
-value = 30.0
-
 [node name="label" type="Label" parent="."]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -100,5 +89,8 @@ margin_top = -86.0
 text = "Press [space] to generate planet."
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="planet"]

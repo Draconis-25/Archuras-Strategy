@@ -4,8 +4,8 @@ var list : Array
 
 func _ready() -> void:
 	list = list_files_in_directory(Config.resource_path + "Ships/")
-	for i in list:
-		print(i)
+	# for i in list:
+	# 	print(i)
 
 func list_files_in_directory(path : String):
 	var files = []
