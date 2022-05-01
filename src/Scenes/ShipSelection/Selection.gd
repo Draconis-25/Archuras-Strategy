@@ -53,4 +53,4 @@ func _process(delta: float) -> void:
 
 func _on_Select_pressed() -> void:
 	DevelopmentData.ship = int(slider.value)
-	Manager.set_scene("res://src/Scenes/CapitalSelection/CSelection.tscn")
+	Manager.goto_scene("res://src/Scenes/CapitalSelection/CSelection.tscn")

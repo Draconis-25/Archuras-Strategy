@@ -21,6 +21,9 @@ func set_scene(path):
 
 
 func _deferred_goto_scene(path):
+	var root = get_tree().get_root()
+	current_scene = root.get_child(root.get_child_count() - 1)
+	
 	# It is now safe to remove the current scene
 	current_scene.free()
 
@@ -38,36 +41,39 @@ func _deferred_goto_scene(path):
 
 #wanna get a loading screen?
 func goto_scene(path):
-		var loader = ResourceLoader.load_interactive(path)
-		
-		if loader == null:
-			print("Resource loader unable to load the resource at path")
-			return
-		
-		var loading_bar = load("res://src/Scenes/Loading/Loading.tscn").instance()
-		
-		get_tree().get_root().call_deferred('add_child', loading_bar)
-		
-		var t = OS.get_ticks_msec()
-		
-		while OS.get_ticks_msec() - t < max_load_time:
-			var err = loader.poll()
-			if err == ERR_FILE_EOF:
-				#Loading Complete
-				var resource = loader.get_resource()
-				get_tree().get_root().call_deferred('add_child', resource.instance())
-				current_scene.queue_free()
-				loading_bar.queue_free()
-				break
-				
-			elif err == OK:
-				#Still loading
-				var progress = float(loader.get_stage()) / loader.get_stage_count()
-				loading_bar.value = progress * 100
-				print(progress)
+	var root = get_tree().get_root()
+	current_scene = root.get_child(root.get_child_count() - 1)
 
-			else:
-				print("Error while loading file")
-				break
+	var loader = ResourceLoader.load_interactive(path)
+	
+	if loader == null:
+		print("Resource loader unable to load the resource at path")
+		return
+	
+	var loading_bar = load("res://src/Scenes/Loading/Loading.tscn").instance()
+	
+	get_tree().get_root().call_deferred('add_child', loading_bar)
+	
+	var t = OS.get_ticks_msec()
+	
+	while OS.get_ticks_msec() - t < max_load_time:
+		var err = loader.poll()
+		if err == ERR_FILE_EOF:
+			#Loading Complete
+			var resource = loader.get_resource()
+			get_tree().get_root().call_deferred('add_child', resource.instance())
+			current_scene.queue_free()
+			loading_bar.queue_free()
+			break
+			
+		elif err == OK:
+			#Still loading
+			var progress = float(loader.get_stage()) / loader.get_stage_count()
+			loading_bar.value = progress * 100
+			print(progress)
 
-			yield(get_tree(), "idle_frame")
+		else:
+			print("Error while loading file")
+			break
+
+		yield(get_tree(), "idle_frame")

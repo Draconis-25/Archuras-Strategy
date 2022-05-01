@@ -52,9 +52,13 @@ func create_new_game() -> void:
 	if mode == "Host":
 		prepare_strings()
 		create_files(game_name)
-		DevelopmentData.add_game(game_name, "res://src/Scripts/Redirect.tscn")
+		DevelopmentData.add_game_hosted(game_name, "res://src/Scripts/Redirect.tscn", "games")
 		DevelopmentData.current_game = game_name
 		Manager.set_scene("res://src/Scripts/Redirect.tscn")
 
 func join_new_game() -> void:
-	pass
+	if mode == "Join":
+		prepare_strings()
+		DevelopmentData.add_game_joined(game_name, "res://src/Scripts/Redirect.tscn", str(target_ip), str(key))
+		DevelopmentData.current_game = "--get-from-host--"
+		Manager.set_scene("res://src/Scripts/Redirect.tscn")

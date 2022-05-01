@@ -59,7 +59,6 @@ func _on_KeyShow_pressed() -> void:
 	$"TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key/HBoxContainer/LineEdit".secret = \
 	!$"TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/Key/HBoxContainer/LineEdit".secret
 
-
 func _on_IPShow_pressed() -> void:
 	$"TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP/HBoxContainer2/LineEdit".secret = \
 	!$"TabContainer/New/VBoxContainer/Data/VBoxContainer/Host/VBoxContainer/IP/HBoxContainer2/LineEdit".secret
@@ -82,6 +81,6 @@ func _on_SubmitNew_pressed() -> void:
 					script.key = $TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Key/LineEdit.text
 					script.target_ip = $TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/IP/LineEdit.text
 					script.username = $TabContainer/New/VBoxContainer/Data/VBoxContainer/Join/VBoxContainer/Name/LineEdit.text
-					script.test()
+					script.join_new_game()
 	else:
 		print("What?!")
